@@ -16,5 +16,12 @@ namespace Tic_Tac_Toe_CSharp
         {
             InitializeComponent();
         }
+
+        private void OnClick(object sender, EventArgs e)
+        {
+            PictureBox p = sender as PictureBox;
+
+            p.Image = player1.Image;
+        }
     }
 }
