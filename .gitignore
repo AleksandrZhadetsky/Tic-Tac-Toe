@@ -1,0 +1,5 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Tic-Tac-Toe-CSharp/.vs/Tic-Tac-Toe-CSharp/v15/Server/sqlite3
