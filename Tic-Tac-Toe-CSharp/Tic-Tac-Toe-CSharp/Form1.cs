@@ -12,6 +12,17 @@ namespace Tic_Tac_Toe_CSharp
 {
     public partial class Form1 : Form
     {
+
+        enum PlayerTurn { None, Player1, Player2};
+
+        PlayerTurn turn;
+
+        void OnNewGame()
+        {
+            turn = PlayerTurn.Player1;
+            lblstatus.Text = "";
+        }
+
         public Form1()
         {
             InitializeComponent();
@@ -21,7 +32,23 @@ namespace Tic_Tac_Toe_CSharp
         {
             PictureBox p = sender as PictureBox;
 
-            p.Image = player1.Image;
+            if (turn == PlayerTurn.Player1)
+            {
+                p.Image = player1.Image;
+            }
+            else
+            {
+                p.Image = player2.Image;
+            }
+
+            //Change turns
+            turn = (PlayerTurn.Player1 == turn) ? PlayerTurn.Player2 : PlayerTurn.Player1;
+            
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            OnNewGame();
         }
     }
 }
