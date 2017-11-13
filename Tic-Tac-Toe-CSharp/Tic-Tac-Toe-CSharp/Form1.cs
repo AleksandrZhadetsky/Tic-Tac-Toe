@@ -14,8 +14,10 @@ namespace Tic_Tac_Toe_CSharp
     {
 
         enum PlayerTurn { None, Player1, Player2};
+        enum Winner { None, Player1, Player2, Draw};
 
         PlayerTurn turn;
+        Winner winner;
 
         void OnNewGame()
         {
@@ -37,19 +39,111 @@ namespace Tic_Tac_Toe_CSharp
             }
 
             turn = PlayerTurn.Player1;
-            
-            lblstatus.Text = "";
+            winner = Winner.None;
+            ShowTurn();
+        }
+
+        /*
+         +---+---+---+
+         | 0 | 1 | 2 |
+         +---+---+---+
+         | 3 | 4 | 5 |
+         +---+---+---+
+         | 6 | 7 | 8 |
+         +---+---+---+
+        */
+
+        Winner GetWinner()
+        {
+            PictureBox[] allWinningMoves = {
+                                             //Check each row
+                                             pictureBox0, pictureBox1, pictureBox2,
+                                             pictureBox3, pictureBox4, pictureBox5,
+                                             pictureBox6, pictureBox7, pictureBox8,
+                                             //Columns
+                                             pictureBox0, pictureBox3, pictureBox6,
+                                             pictureBox1, pictureBox4, pictureBox7,
+                                             pictureBox2, pictureBox5, pictureBox8,
+                                             //Diagonal
+                                             pictureBox0, pictureBox4, pictureBox8,
+                                             pictureBox2, pictureBox4, pictureBox6  
+                                          };
+
+            for (int i=0; i < allWinningMoves.Length; i+=3)
+            {
+                if (allWinningMoves[i].Image != null)
+                {
+                    if (allWinningMoves[i].Image == allWinningMoves[i+1].Image &&
+                        allWinningMoves[i].Image == allWinningMoves[i + 2].Image)
+                    {
+                        if (allWinningMoves[i].Image == player1.Image)
+                        {
+                            return Winner.Player1;
+                        }
+                        else
+                        {
+                            return Winner.Player2;
+                        }
+
+                    }
+                }
+            }
+
+            //Check for empty cell
+            PictureBox[] allPictures = { pictureBox0,
+                                          pictureBox1,
+                                          pictureBox2,
+                                          pictureBox3,
+                                          pictureBox4,
+                                          pictureBox5,
+                                          pictureBox6,
+                                          pictureBox7,
+                                          pictureBox8,
+                                          };
+
+            //Clear all game board cells
+            foreach (var p in allPictures)
+            {
+                if (p.Image == null)
+                {
+                    return Winner.None;
+                };
+            }
+
+            //it is definitely a draw
+            return Winner.Draw;
         }
 
         void ShowTurn()
         {
             string status = "";
-            if (turn == PlayerTurn.Player1)
-                status = "Turn: Player 1";
-            else
-                status = "Turn: Player 2";
+            string msg = "";
+
+            switch (winner)
+            {
+                case Winner.None:
+                    if (turn == PlayerTurn.Player1)
+                        status = "Turn: Player 1";
+                    else
+                        status = "Turn: Player 2";
+                    break;
+                case Winner.Player1:
+                   msg = status = "Player 1 Wins!";
+                   
+                    break;
+                case Winner.Player2:
+                  msg = status = "Player 2 Wins";
+                    break;
+                case Winner.Draw:
+                    status = "Looks like its a draw!";
+                    break;
+            }
 
             lblstatus.Text = status;
+            if (msg != "")
+            {
+                MessageBox.Show(msg, "Winner!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         public Form1()
@@ -63,6 +157,9 @@ namespace Tic_Tac_Toe_CSharp
 
             if (p.Image != null)
                 return;
+            if (turn == PlayerTurn.None)
+                return;
+
             if (turn == PlayerTurn.Player1)
             {
                 p.Image = player1.Image;
@@ -72,8 +169,18 @@ namespace Tic_Tac_Toe_CSharp
                 p.Image = player2.Image;
             }
 
-            //Change turns
-            turn = (PlayerTurn.Player1 == turn) ? PlayerTurn.Player2 : PlayerTurn.Player1;
+            //Check for a winner
+            winner = GetWinner();
+            if (winner == Winner.None)
+            {
+                //Change turns
+                turn = (PlayerTurn.Player1 == turn) ? PlayerTurn.Player2 : PlayerTurn.Player1;
+            }
+            else
+            {
+                turn = PlayerTurn.None;
+            }
+            
 
             ShowTurn();
 
@@ -97,6 +204,19 @@ namespace Tic_Tac_Toe_CSharp
                 OnNewGame();
             }
                 
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var result = MessageBox.Show("Are you sure you want to exit now?",
+                                          "Exit",
+                                          MessageBoxButtons.YesNo,
+                                          MessageBoxIcon.Question);
+
+            if (result == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }
