@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Tic_Tac_Toe_CSharp
+namespace TicTacToe
 {
     public partial class Form1 : Form
     {
@@ -19,7 +19,7 @@ namespace Tic_Tac_Toe_CSharp
         PlayerTurn turn;
         Winner winner;
 
-        void OnNewGame()
+        void NewGame()
         {
             PictureBox[] allPictures = { pictureBox0,
                                           pictureBox1,
@@ -43,28 +43,18 @@ namespace Tic_Tac_Toe_CSharp
             ShowTurn();
         }
 
-        /*
-         +---+---+---+
-         | 0 | 1 | 2 |
-         +---+---+---+
-         | 3 | 4 | 5 |
-         +---+---+---+
-         | 6 | 7 | 8 |
-         +---+---+---+
-        */
-
         Winner GetWinner()
         {
             PictureBox[] allWinningMoves = {
-                                             //Check each row
+                                             //search for win case in each row
                                              pictureBox0, pictureBox1, pictureBox2,
                                              pictureBox3, pictureBox4, pictureBox5,
                                              pictureBox6, pictureBox7, pictureBox8,
-                                             //Columns
+                                             //...same in each column
                                              pictureBox0, pictureBox3, pictureBox6,
                                              pictureBox1, pictureBox4, pictureBox7,
                                              pictureBox2, pictureBox5, pictureBox8,
-                                             //Diagonal
+                                             //in diagonals
                                              pictureBox0, pictureBox4, pictureBox8,
                                              pictureBox2, pictureBox4, pictureBox6  
                                           };
@@ -84,7 +74,6 @@ namespace Tic_Tac_Toe_CSharp
                         {
                             return Winner.Player2;
                         }
-
                     }
                 }
             }
@@ -179,36 +168,31 @@ namespace Tic_Tac_Toe_CSharp
             else
             {
                 turn = PlayerTurn.None;
-            }
-            
-
-            ShowTurn();
-
-            
+            }          
+            ShowTurn();           
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            OnNewGame();
+            NewGame();
         }
 
         private void btnNewButton_Click(object sender, EventArgs e)
         {
-            var result = MessageBox.Show("Are you sure you want to start a new game?",
+            var result = MessageBox.Show("start a new game?",
                                           "New Game",
                                           MessageBoxButtons.YesNo,
                                           MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {
-                OnNewGame();
-            }
-                
+                NewGame();
+            }                
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            var result = MessageBox.Show("Are you sure you want to exit now?",
+            var result = MessageBox.Show("exit now?",
                                           "Exit",
                                           MessageBoxButtons.YesNo,
                                           MessageBoxIcon.Question);

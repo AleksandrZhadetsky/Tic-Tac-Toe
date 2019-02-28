@@ -85,5 +85,13 @@
   <ItemGroup>
     <None Include="Resources\addias.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\O.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\X.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

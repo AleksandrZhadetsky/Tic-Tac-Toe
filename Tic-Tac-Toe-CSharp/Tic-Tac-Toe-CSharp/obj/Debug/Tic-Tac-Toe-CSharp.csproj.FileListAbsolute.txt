@@ -18,3 +18,15 @@ C:\Users\GROBINSON\Source\Repos\Tic-Tac-Toe\Tic-Tac-Toe-CSharp\Tic-Tac-Toe-CShar
 C:\Users\GROBINSON\Source\Repos\Tic-Tac-Toe\Tic-Tac-Toe-CSharp\Tic-Tac-Toe-CSharp\obj\Debug\Tic-Tac-Toe-CSharp.csproj.CoreCompileInputs.cache
 C:\Users\GROBINSON\Source\Repos\Tic-Tac-Toe\Tic-Tac-Toe-CSharp\Tic-Tac-Toe-CSharp\obj\Debug\Tic-Tac-Toe-CSharp.exe
 C:\Users\GROBINSON\Source\Repos\Tic-Tac-Toe\Tic-Tac-Toe-CSharp\Tic-Tac-Toe-CSharp\obj\Debug\Tic-Tac-Toe-CSharp.pdb
+E:\GitHub\Tic-Tac-Toe\Tic-Tac-Toe-CSharp\Tic-Tac-Toe-CSharp\bin\Debug\Tic-Tac-Toe-CSharp.exe.config
+E:\GitHub\Tic-Tac-Toe\Tic-Tac-Toe-CSharp\Tic-Tac-Toe-CSharp\bin\Debug\Tic-Tac-Toe-CSharp.exe
+E:\GitHub\Tic-Tac-Toe\Tic-Tac-Toe-CSharp\Tic-Tac-Toe-CSharp\bin\Debug\Tic-Tac-Toe-CSharp.pdb
+E:\GitHub\Tic-Tac-Toe\Tic-Tac-Toe-CSharp\Tic-Tac-Toe-CSharp\obj\Debug\Tic-Tac-Toe-CSharp.csprojAssemblyReference.cache
+E:\GitHub\Tic-Tac-Toe\Tic-Tac-Toe-CSharp\Tic-Tac-Toe-CSharp\obj\Debug\Tic_Tac_Toe_CSharp.Form1.resources
+E:\GitHub\Tic-Tac-Toe\Tic-Tac-Toe-CSharp\Tic-Tac-Toe-CSharp\obj\Debug\Tic_Tac_Toe_CSharp.Properties.Resources.resources
+E:\GitHub\Tic-Tac-Toe\Tic-Tac-Toe-CSharp\Tic-Tac-Toe-CSharp\obj\Debug\Tic-Tac-Toe-CSharp.csproj.GenerateResource.cache
+E:\GitHub\Tic-Tac-Toe\Tic-Tac-Toe-CSharp\Tic-Tac-Toe-CSharp\obj\Debug\Tic-Tac-Toe-CSharp.csproj.CoreCompileInputs.cache
+E:\GitHub\Tic-Tac-Toe\Tic-Tac-Toe-CSharp\Tic-Tac-Toe-CSharp\obj\Debug\Tic-Tac-Toe-CSharp.exe
+E:\GitHub\Tic-Tac-Toe\Tic-Tac-Toe-CSharp\Tic-Tac-Toe-CSharp\obj\Debug\Tic-Tac-Toe-CSharp.pdb
+E:\GitHub\Tic-Tac-Toe\Tic-Tac-Toe-CSharp\Tic-Tac-Toe-CSharp\bin\Debug\Resources\O.png
+E:\GitHub\Tic-Tac-Toe\Tic-Tac-Toe-CSharp\Tic-Tac-Toe-CSharp\bin\Debug\Resources\X.png
